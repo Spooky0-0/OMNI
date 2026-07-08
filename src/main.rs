@@ -19,16 +19,23 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .flink(shared_config::SHARED_MEM_FLINK);
 
     // If you're on Linux, you could potentially inject map_hugetlb here or rely on OS config
-    let shmem = shmem_conf.create()?;
+    let shmem = match shmem_conf.clone().create() {
+        Ok(m) => m,
+        Err(ShmemError::LinkExists) => {
+            println!("Warning: Shared memory link already exists. Overwriting/re-opening...");
+            shmem_conf.open()?
+        },
+        Err(e) => return Err(e.into()),
+    };
     
     // Initialize the RingBufferHeader safely in the mapped memory
-    let header_ptr = shmem.as_ptr() as *mut shared_config::RingBufferHeader;
+    let header_ptr = shmem.as_ptr() as *mut dsce_types::RingBufferHeader;
     unsafe {
         // Zero initialize the header area just in case
-        std::ptr::write_bytes(header_ptr as *mut u8, 0, std::mem::size_of::<shared_config::RingBufferHeader>());
+        std::ptr::write_bytes(header_ptr as *mut u8, 0, std::mem::size_of::<dsce_types::RingBufferHeader>());
         
         let header = &*header_ptr;
-        header.system_state.store(shared_config::SystemState::Starting as u8, Ordering::SeqCst);
+        header.system_state.store(dsce_types::SystemState::Starting as u8, Ordering::SeqCst);
     }
     
     println!("Shared memory successfully allocated ({} bytes) at flink '{}'", shared_config::SHM_SIZE_BYTES, shared_config::SHARED_MEM_FLINK);
@@ -53,7 +60,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     unsafe {
         let header = &*header_ptr;
-        header.system_state.store(shared_config::SystemState::Running as u8, Ordering::SeqCst);
+        header.system_state.store(dsce_types::SystemState::Running as u8, Ordering::SeqCst);
     }
 
     // Stage 3: Health Monitoring
@@ -111,9 +118,9 @@ fn launch_engine(name: &str) -> Result<Child, std::io::Error> {
         .spawn()
 }
 
-fn transition_to_drain_only(header_ptr: *mut shared_config::RingBufferHeader) {
+fn transition_to_drain_only(header_ptr: *mut dsce_types::RingBufferHeader) {
     unsafe {
         let header = &*header_ptr;
-        header.system_state.store(shared_config::SystemState::DrainOnly as u8, Ordering::SeqCst);
+        header.system_state.store(dsce_types::SystemState::DrainOnly as u8, Ordering::SeqCst);
     }
 }

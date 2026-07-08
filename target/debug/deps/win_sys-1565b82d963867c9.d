@@ -1,0 +1,11 @@
+D:\Software Engineering Projects\OMNIBUS\target\debug\deps\win_sys-1565b82d963867c9.d: C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\lib.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\file_system.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\memory.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\security.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\system_services.rs
+
+D:\Software Engineering Projects\OMNIBUS\target\debug\deps\libwin_sys-1565b82d963867c9.rlib: C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\lib.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\file_system.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\memory.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\security.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\system_services.rs
+
+D:\Software Engineering Projects\OMNIBUS\target\debug\deps\libwin_sys-1565b82d963867c9.rmeta: C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\lib.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\file_system.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\memory.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\security.rs C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\system_services.rs
+
+C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\lib.rs:
+C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\file_system.rs:
+C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\memory.rs:
+C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\security.rs:
+C:\Users\dayan\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\win-sys-0.3.1\src\system_services.rs:
